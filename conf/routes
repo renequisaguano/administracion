@@ -13,3 +13,6 @@ GET     /public/                                staticDir:public
 
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}
+
+# Importar rutas de Secure
+*       /                                       module:secure
