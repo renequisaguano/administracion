@@ -16,3 +16,6 @@ GET     /public/                                staticDir:public
 
 # Importar rutas de Secure
 *       /                                       module:secure
+
+# Importar rutas de Secure
+*       /admin                                  module:crud
