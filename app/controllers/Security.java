@@ -27,7 +27,7 @@ public class Security extends Secure.Security {
 		render();
 	}
 	
-	public static void guardarUsuario(String email, String nombre, String apellido, String password, String passwordR){
+	public static void guardarUsuario(String email, String nombre, String apellido, String password, String passwordR) throws Throwable{
 		flash.put("email",email);
 		flash.put("nombre",nombre);
 		flash.put("apellido",apellido);
@@ -40,8 +40,7 @@ public class Security extends Secure.Security {
 				
 				Usuario nuevo=new Usuario(nombre,apellido,email,password,false);
 				nuevo.save();
-				authenticate(email, password);
-				redirect("/");
+				Secure.authenticate(email, password,false);
 				
 			}else
 			{
