@@ -1,0 +1,38 @@
+#{extends 'layout.html' /}
+#{set title:messages.get('crud.list.title', type.name) /}
+
+<div id="crudList" class="${type.name}">
+
+    <h2 id="crudListTitle">Listado de &{'crud.list.title', type.name}</h2>
+	<br>
+    <div id="crudListSearch">
+        #{crud.search /}
+    </div>
+	<br>
+		%{int i=1;}%
+    <div id="crudListTable">
+        #{crud.table fields:['cedula','apellido','nombre','foto','id']}
+		   	 
+		  
+		   #{crud.custom 'id'}
+		       <a href="/socios/show?id=${object.id}" class="btn btn-warning">Editar</a>
+		   #{/crud.custom}
+
+		   #{crud.custom 'foto'}
+		   	<img height="50px" width="50px" src="@{Socios.verFoto(object.id)}">
+		   #{/ crud.custom}
+		   
+			
+		   
+  		#{/crud.table}
+    </div>
+
+    <div id="crudListPagination">
+        #{crud.pagination /}
+    </div>
+
+    <p id="crudListAdd">
+        <a href="@{blank()}">&{'crud.add', type.modelName}</a>
+    </p>
+
+</div>

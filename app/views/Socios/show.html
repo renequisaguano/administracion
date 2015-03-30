@@ -1,0 +1,60 @@
+#{extends 'layout.html' /}
+#{set title:messages.get('crud.show.title', type.modelName) /}
+
+<script language="javascript">
+	$(document).ready(function (){
+		function mostrarImagen(input) {
+			 if (input.files && input.files[0]) {
+			  var reader = new FileReader();
+			  reader.onload = function (e) {
+			   $('#img_destino').attr('src', e.target.result);
+			  }
+			  reader.readAsDataURL(input.files[0]);
+			 }
+			}
+			 
+			$("#object_foto").change(function(){
+			 mostrarImagen(this);
+			});
+	});
+</script>
+
+
+<div id="crudShow" class="${type.name}">
+
+    <h2 id="crudShowTitle">&{'crud.show.title', type.modelName}</h2>
+    <br>
+	<div class="objectForm">
+    #{form action:@save(object._key()), enctype:'multipart/form-data'}
+       #{crud.form}
+        
+         #{crud.custom 'foto'}
+         	
+         	 <label for="object_foto">
+	            &{'foto'}
+	        </label>
+	      
+	        <img  id="img_destino" height="100px"  src="@{Socios.verFoto(object.id)}" width="100px">
+	        <input id="object_foto" type="file" name="object.foto">
+	     
+	        
+	        <span class="crudHelp"> </span>
+
+	    #{/crud.custom}
+        
+        #{/ crud.form}
+        
+        <p class="crudButtons">
+            <input type="submit" name="_save" value="&{'crud.save', type.modelName}" class="btn btn-primary" />
+            <input type="submit" name="_saveAndContinue" value="&{'crud.saveAndContinue', type.modelName}" />
+        </p>
+    #{/form}
+    </div>
+
+    #{form @delete(object._key())}
+        <p class="crudDelete">
+            <input type="submit" value="&{'crud.delete', type.modelName}" />
+        </p>
+    #{/form}
+
+</div>

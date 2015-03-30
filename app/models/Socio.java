@@ -13,5 +13,9 @@ public class Socio extends Model {
 	public String apellido;
 	public String cedula;
 	public Blob foto;
+	
+	public String toString(){
+		return apellido+" "+nombre;
+	}
     
 }

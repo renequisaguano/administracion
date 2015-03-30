@@ -1,0 +1,53 @@
+#{extends 'layout.html' /}
+#{set title:messages.get('crud.blank.title', type.modelName) /}
+<script language="javascript">
+	$(document).ready(function (){
+		function mostrarImagen(input) {
+			 if (input.files && input.files[0]) {
+			  var reader = new FileReader();
+			  reader.onload = function (e) {
+			   $('#img_destino').attr('src', e.target.result);
+			  }
+			  reader.readAsDataURL(input.files[0]);
+			 }
+			}
+			 
+			$("#object_foto").change(function(){
+			 mostrarImagen(this);
+			});
+	});
+</script>
+
+
+<div id="crudBlank" class="${type.name}">
+
+    <h2 id="crudBlankTitle">&{'crud.blank.title', type.modelName}</h2>
+	<br>
+    <div class="objectForm">
+    #{form action:@create(), enctype:'multipart/form-data'}
+        #{crud.form}
+        
+         #{crud.custom 'foto'}
+         	
+         	 <label for="object_foto">
+	            &{'foto'}
+	        </label>
+	      
+	        <img  id="img_destino" height="100px" width="100px">
+	        <input  id="object_foto" type="file" name="object.foto">
+	     
+	        
+	        <span class="crudHelp"> </span>
+
+	    #{/crud.custom}
+        
+        #{/ crud.form}
+        <p class="crudButtons">
+            <input type="submit" name="_save" value="&{'crud.save', type.modelName}" class="btn btn-primary"/>
+            <input type="submit" name="_saveAndContinue" value="&{'crud.saveAndContinue', type.modelName}" />
+            <input type="submit" name="_saveAndAddAnother" value="&{'crud.saveAndAddAnother', type.modelName}" />
+        </p>
+    #{/form}
+    </div>
+
+</div>
