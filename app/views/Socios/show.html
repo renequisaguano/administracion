@@ -1,24 +1,6 @@
 #{extends 'layout.html' /}
 #{set title:messages.get('crud.show.title', type.modelName) /}
 
-<script language="javascript">
-	$(document).ready(function (){
-		function mostrarImagen(input) {
-			 if (input.files && input.files[0]) {
-			  var reader = new FileReader();
-			  reader.onload = function (e) {
-			   $('#img_destino').attr('src', e.target.result);
-			  }
-			  reader.readAsDataURL(input.files[0]);
-			 }
-			}
-			 
-			$("#object_foto").change(function(){
-			 mostrarImagen(this);
-			});
-	});
-</script>
-
 
 <div class="row"> 
 	<div class="col-lg-7">
@@ -26,7 +8,7 @@
 	</div>
 	<div class="col-lg-5">
         
-       #{form @delete(object._key())}
+       #{form @delete(object._key()),class:"formulario"}
        		
             <button type="submit" onclick="return confirm('¿Está eguro que desea eliminar este registro?');" style="margin-top:10px;" class="btn btn-danger"> <i class="fa fa-trash-o"> </i> &{'crud.delete', type.modelName}</button>
 	    #{/form}
@@ -35,7 +17,7 @@
 </div>
 <br>
 	<div class="objectForm">
-    #{form action:@save(object._key()), enctype:'multipart/form-data'}
+    #{form action:@save(object._key()), enctype:'multipart/form-data', class: "formulario"}
        #{formulario}
         
          #{crud.custom 'foto'}

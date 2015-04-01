@@ -363,6 +363,35 @@
         
         
         
+   <!-- VISTA PREVIA DE LAS IMAGENES -->
+   <script>
+	$(document).ready(function (){
+		
+		function mostrarImagen(input) {
+			 if (input.files && input.files[0]) {
+			  var reader = new FileReader();
+			  reader.onload = function (e) {
+			   $('#img_destino').attr('src', e.target.result);
+			  }
+			  reader.readAsDataURL(input.files[0]);
+			 }
+			}
+			 
+			$("#object_foto").change(function(){
+			 mostrarImagen(this);
+			});
+		
+			$(".formulario").submit(function(){
+				$('#cargando').modal('show'); 
+			});
+		
+	});
+</script>
+   
+   
+   <!-- FIN VISTA PREVIA DE LAS IMAGENES -->
+        
+        
         
         <!-- /. PAGE WRAPPER  -->
     </div>
@@ -380,8 +409,33 @@
     <!-- Custom Js -->
     <script src="@{'/public/assets/js/custom-scripts.js'}"></script>
     
+      <script src="@{'public/assets/js/bootstrap-modal.js'}"></script>
     
     
+    
+    <!-- VENTANA MODAL PARA CARGAR DATOS -->
+    <div id="cargando" class="modal" style="display: none; ">
+		<div class="container">
+			<br><br>
+			<div class="col-lg-4">
+			</div>
+			<div class="col-lg-4 well">
+	            <div class="modal-header">
+	              <h3>Un Momento Por Favor</h3>
+	            </div>
+	            <div class="modal-body">
+	              <h4>Procesando Datos</h4>
+	             <img alt="" src="@{'/public/images/cargando.gif'}" class="img-responsive">		        
+	            </div>
+	            <div class="modal-footer">
+	             <p>Administraci&oacuten Barrial</p>
+	            </div>
+	        </div>
+	        <div class="col-lg-4">
+			</div>
+	       </div>
+</div>
+    <!-- FIN MODAL PARA CARGAR DATOS -->
     
     
     
