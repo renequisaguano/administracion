@@ -25,27 +25,20 @@
 	<br>
     <div class="objectForm">
     #{form action:@create(), enctype:'multipart/form-data'}
-        #{crud.form}
+        #{formulario}
         
          #{crud.custom 'foto'}
-         	
-         	 <label for="object_foto">
-	            &{'foto'} (opcional)
-	        </label>
-	      
-	        <img  id="img_destino" height="100px" width="100px">
-	        <input  id="object_foto" type="file" name="object.foto">
-	     
-	        
-	        <span class="crudHelp"> </span>
-
+         
+         	#{ foto /}
+        	
 	    #{/crud.custom}
         
-        #{/ crud.form}
+        #{/ formulario}
         <p class="crudButtons">
-            <input type="submit" name="_save" value="&{'crud.save', type.modelName}" class="btn btn-primary"/>
-            <input type="submit" name="_saveAndContinue" value="&{'crud.saveAndContinue', type.modelName}" />
-            <input type="submit" name="_saveAndAddAnother" value="&{'crud.saveAndAddAnother', type.modelName}" />
+        	  <a class="btn-cafe pull-left"  style="margin-left:10px;" href="/socios/list"><i class="fa fa-mail-reply"> </i> Volver</a>
+            <button type="submit" name="_save" class="btn btn-primary"><i class="fa fa-save"> </i> &{'crud.save', type.modelName}</button>
+            <button type="submit" name="_saveAndContinue"  class="btn btn-warning"> <i class="fa fa-clipboard"> </i> &{'crud.saveAndContinue', type.modelName}</button>
+            <button type="submit" name="_saveAndAddAnother"  class="btn btn-success"> <i class="fa fa-file"> </i> &{'crud.saveAndAddAnother', type.modelName}</button>
         </p>
     #{/form}
     </div>

@@ -16,9 +16,9 @@ public class Socio extends Model {
 	
 	@Match(value="[0-9]+$",message="Ingrese solo números")
 	@Required(message="Ingrese el número de cedula")
-	@MaxSize(value=10,message="La cédula no puede tener mas de 10 dígitos")
+	@MaxSize(value=10,message="La cédula no puede tener más de 10 dígitos")
 	@MinLength(value=10,message="La cédula no puede tener menos de 10 dígitos")
-	@Unique(message="Esta cedula ya ha sido Registrada Anteriormente")
+	@Unique(message="Esta cédula ya ha sido Registrada Anteriormente")
 	public String cedula;
 	
 	
