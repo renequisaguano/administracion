@@ -1,0 +1,45 @@
+#{extends 'layout.html' /}
+#{set title:messages.get('crud.show.title', type.modelName) /}
+
+
+
+
+<script type="text/javascript" src="@{'/public/javascripts/editor.js'}"></script>
+
+
+
+<div class="row"> 
+	<div class="col-lg-7">
+    	 <h2>&{'crud.show.title', type.modelName}</h2>
+	</div>
+	<div class="col-lg-5">
+        
+       #{form @delete(object._key()),class:"formulario"}
+       		
+            <button type="submit" onclick="return confirm('¿Está eguro que desea eliminar este registro?');" style="margin-top:10px;" class="btn btn-danger"> <i class="fa fa-trash-o"> </i> &{'crud.delete', type.modelName}</button>
+	    #{/form}
+        	
+	</div>
+</div>
+<br>
+
+
+
+
+
+
+
+
+  
+
+    <div class="objectForm">
+    #{form action:@save(object._key()), enctype:'multipart/form-data', class:'formulario'}
+        #{formulario /}
+        <p class="crudButtons">
+            <input type="submit" name="_save" value="&{'crud.save', type.modelName}" />
+            <input type="submit" name="_saveAndContinue" value="&{'crud.saveAndContinue', type.modelName}" />
+        </p>
+    #{/form}
+    </div>
+
+

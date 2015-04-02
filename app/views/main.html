@@ -8,6 +8,8 @@
         #{get 'moreStyles' /}
         <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon1.png'}">
         <script src="@{'/public/javascripts/jquery-1.6.4.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+        <script src="@{'/public/tinymce/tinymce.min.js'}"></script>
+        
         #{get 'moreScripts' /}
              
         <!-- TEMPLATE -->
@@ -341,7 +343,7 @@
                     </li>  
                     
                     <li>
-                        <a href="#"><i class="fa fa-file-text"></i> Actas</a>
+                        <a href="/actas/list"><i class="fa fa-file-text"></i> Actas</a>
                     </li>  
 
                 </ul>
@@ -412,7 +414,11 @@
     <!-- Custom Js -->
     <script src="@{'/public/assets/js/custom-scripts.js'}"></script>
     
-      <script src="@{'public/assets/js/bootstrap-modal.js'}"></script>
+      <script src="@{'/public/assets/js/bootstrap-modal.js'}"></script>
+      
+      
+      
+      
  
     <!-- VENTANA MODAL PARA CARGAR DATOS -->
     <div id="cargando" class="modal" style="display: none; ">
@@ -438,10 +444,9 @@
 </div>
     <!-- FIN MODAL PARA CARGAR DATOS -->
 
-
-<!-- MOSTRAR PROGRESS BAR 
+<!-- Progress BAr 
     <script src="@{'/public/javascripts/progressbar.js'}"></script>
- -->
+-->
 
     
     
