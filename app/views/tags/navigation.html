@@ -1,13 +1,12 @@
 
-<ul class="breadcrumb" style="font-size: 15px; padding-bottom: 10px; padding-top: 10px;">
-    <li><a href="/admin" style="padding-left: 5px;">&{'crud.home'}</a></li>
-    #{if _caller.type}
-        <li> <a href="@{list()}" >&{_caller.type.name}</a> </li>
-    #{/if}
-    #{if _caller.object?._key()}
-        <li> <a href="@{show(_caller.object._key())}">${_caller.object?.toString()?.escape()?.raw()}</b></a></li>
-    #{/if}
-    #{if request.actionMethod == 'blank' || request.actionMethod == 'create'}
-        <li> <a href="@{blank()}">&{'crud.blank'}</a></li>
-    #{/if}
+<ul class="breadcrumb"
+	style="font-size: 15px; padding-bottom: 10px; padding-top: 10px;">
+	<li><a href="/admin" style="padding-left: 5px;">&{'crud.home'}</a></li>
+	#{if _caller.type}
+	<li><a href="@{list()}">&{_caller.type.name}</a></li> #{/if} #{if
+	_caller.object?._key()}
+	<li><a href="@{show(_caller.object._key())}">${_caller.object?.toString()?.escape()?.raw()}</b></a></li>
+	#{/if} #{if request.actionMethod == 'blank' || request.actionMethod ==
+	'create'}
+	<li><a href="@{blank()}">&{'crud.blank'}</a></li> #{/if}
 </ul>

@@ -2,41 +2,28 @@
 <!DOCTYPE html>
 
 <html lang="${lang}">
-    <head>
-        <title>#{get 'title' /}</title>
-        <meta charset="${_response_encoding}" />
-        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/crud.css'}" />
-    </head>
-    <body>
+<head>
+<title>#{get 'title' /}</title>
+<meta charset="${_response_encoding}" />
+<link rel="stylesheet" media="screen"
+	href="@{'/public/stylesheets/crud.css'}" />
+</head>
+<body>
 
-#{if request.actionMethod != 'index'}
-            <div id="crudBreadcrumb">
-                #{navigation /}
-            </div>
-#{/if}
+	#{if request.actionMethod != 'index'}
+	<div id="crudBreadcrumb">#{navigation /}</div>
+	#{/if} #{if flash.success}
+	<div class="crudFlash flashSuccess">${flash.success}</div>
+	#{/if} #{if flash.error || error}
+	<div class="crudFlash flashError">${error ?: flash.error}</div>
+	#{/if} #{doLayout /}
 
-#{if flash.success}
-            <div class="crudFlash flashSuccess">
-                ${flash.success}
-            </div>
-#{/if}
-#{if flash.error || error}
-            <div class="crudFlash flashError">
-                ${error ?: flash.error}
-            </div>
-#{/if}
 
-       
-#{doLayout /}
-        
+	<div id="crudFooter">
+		#{if request.actionMethod != 'index'}
+		<div id="crudBreadcrumb">#{navigation /}</div>
+		#{/if}
+	</div>
 
-        <div id="crudFooter">
-           #{if request.actionMethod != 'index'}
-			            <div id="crudBreadcrumb">
-			                #{navigation /}
-			            </div>
-			#{/if}
-        </div>
-
-    </body>
+</body>
 </html>

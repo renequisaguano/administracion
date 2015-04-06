@@ -1,34 +1,30 @@
-#{extends 'layout.html' /}
-#{set title:messages.get('crud.title') /}
+#{extends 'layout.html' /} #{set title:messages.get('crud.title') /}
 
 <div id="crudIndex">
 
-    <h2 class="well  text-center">&{'crud.index.title'}</h2>
+	<h2 class="well  text-center">&{'crud.index.title'}</h2>
 
-<div class="row">
-<div class="col-lg-4">
-</div>
-<div class="col-lg-4">
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th><h4>&{'crud.index.objectType'}</h4></th>
-                <th width="20%">&{'crud.index.action'}</th>
-            </tr>
-        </thead>
-        <tbody>
-		#{crud.types}
-            <tr>
-                <td>
-                    <a href="${type.listAction}" ><b>&{type.name}</b></a>
-                </td>
-                <td>
-                    <a href="${type.blankAction}" class="btn btn-success"><b> <i class="fa fa-plus"> </i> &{'crud.index.add', type}</b></a>
-                </td>
-            </tr>
-		#{/crud.types}
-        </tbody>
-    </table>
+	<div class="row">
+		<div class="col-lg-4"></div>
+		<div class="col-lg-4">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th><h4>&{'crud.index.objectType'}</h4></th>
+						<th width="20%">&{'crud.index.action'}</th>
+					</tr>
+				</thead>
+				<tbody>
+					#{crud.types}
+					<tr>
+						<td><a href="${type.listAction}"><b>&{type.name}</b></a></td>
+						<td><a href="${type.blankAction}" class="btn btn-success"><b>
+									<i class="fa fa-plus"> </i> &{'crud.index.add', type}
+							</b></a></td>
+					</tr>
+					#{/crud.types}
+				</tbody>
+			</table>
 
-</div>
-</div>
+		</div>
+	</div>

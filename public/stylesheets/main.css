@@ -1,29 +1,27 @@
-.btn-cafe{
-	background:#412E2E;
-	color:white;
+.btn-cafe {
+	background: #412E2E;
+	color: white;
 	display: inline-block;
-  	padding: 6px 12px;
-    margin-bottom: 0;
-    font-size: 14px;
-    font-weight: normal;
-    line-height: 1.42857143;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-     user-select: none;
-     background-image: none;
-     border: 1px solid transparent;
-     border-radius: 4px;
+	padding: 6px 12px;
+	margin-bottom: 0;
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 1.42857143;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-image: none;
+	border: 1px solid transparent;
+	border-radius: 4px;
 }
 
-.btn-cafe:hover{
+.btn-cafe:hover {
 	background-color: #624B4B;
-	color:white;
-    text-decoration: none;
-
+	color: white;
+	text-decoration: none;
 }
-

@@ -9,7 +9,6 @@
 }
 
 /** Header **/
-
 #crud #crudHeader {
 	background: #111111;
 	padding: 10px 20px;
@@ -26,7 +25,6 @@
 }
 
 /** Breadcrumb **/
-
 #crudBreadcrumb {
 	padding: 5px 20px;
 	font-size: 80%;
@@ -53,7 +51,6 @@
 }
 
 /** Flash message **/
-
 .crudFlash {
 	padding: 5px 20px;
 	border-bottom: 1px solid #ddd;
@@ -69,7 +66,6 @@
 }
 
 /** Content **/
-
 #crud #crudContent {
 	padding: 10px 20px;
 }
@@ -85,9 +81,8 @@ table a {
 }
 
 /** Tables **/
-
 #crud #crudContent table {
-
+	
 }
 
 .encabezadoTabla {
@@ -135,7 +130,6 @@ table a {
 }
 
 /** Forms **/
-
 form {
 	margin: 0;
 }
@@ -169,7 +163,7 @@ label {
 }
 
 .crud_hidden {
-    display: none;
+	display: none;
 }
 
 .crudButtons {
@@ -211,13 +205,12 @@ form .currentAttachment {
 }
 
 form .removeAttachment {
-    display: block;
-    font-size: 80%;
-    margin-left: 20%;
+	display: block;
+	font-size: 80%;
+	margin-left: 20%;
 }
 
 /** Footer **/
-
 #crud #crudFooter {
 	font-size: 80%;
 	color: #aaa;
@@ -232,7 +225,6 @@ form .removeAttachment {
 }
 
 /** Home **/
-
 .crudNew {
 	text-align: right !important;
 }
@@ -252,7 +244,6 @@ form .removeAttachment {
 }
 
 /** List **/
-
 #crudList {
 	position: relative;
 }
@@ -310,7 +301,6 @@ form .removeAttachment {
 }
 
 /** Show **/
-
 #crudShow {
 	position: relative;
 }
@@ -333,4 +323,5 @@ form .removeAttachment {
 .crudDelete input:hover {
 	opacity: .7;
 }
-*/
+*
+/

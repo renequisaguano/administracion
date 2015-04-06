@@ -1,50 +1,58 @@
-#{extends 'layout.html' /}
-#{set title:messages.get('crud.show.title', type.modelName) /}
+#{extends 'layout.html' /} #{set title:messages.get('crud.show.title',
+type.modelName) /}
 
 
-<div class="row"> 
+<div class="row">
 	<div class="col-lg-7">
-    	<h2 id="crudListTitle"><h2 id="crudShowTitle">&{'crud.show.title', type.modelName}</h2></h2>
+		<h2 id="crudListTitle">
+			<h2 id="crudShowTitle">&{'crud.show.title', type.modelName}</h2>
+		</h2>
 	</div>
 	<div class="col-lg-5">
-        
-       #{form @delete(object._key()),class:"formulario"}
-       		
-            <button type="submit" onclick="return confirm('¿Está eguro que desea eliminar este registro?');" style="margin-top:10px;" class="btn btn-danger"> <i class="fa fa-trash-o"> </i> &{'crud.delete', type.modelName}</button>
-	    #{/form}
-        	
+
+		#{form @delete(object._key()),class:"formulario"}
+
+		<button type="submit"
+			onclick="return confirm('¿Está eguro que desea eliminar este registro?');"
+			style="margin-top: 10px;" class="btn btn-danger">
+			<i class="fa fa-trash-o"> </i> &{'crud.delete', type.modelName}
+		</button>
+		#{/form}
+
 	</div>
 </div>
 <br>
-	<div class="objectForm">
-    #{form action:@save(object._key()), enctype:'multipart/form-data', class: "formulario"}
-       #{formulario}
-        
-         #{crud.custom 'foto'}
-         	
-         	 <div class="row">
-			<div class="col-lg-2">
-	         	 <label for="object_foto">
-		            &{'foto'} (opcional)
-		        </label>
-		     </div>
-		       <div class="col-lg-10">
-	      
-	        <img  id="img_destino" height="100px"  src="@{Socios.verFoto(object.id)}" width="100px">
-	        <input id="object_foto" type="file" name="object.foto" style="margin-top:10px;">
-	       </div>
-		     <div class="col-lg-4">
-		        <span class="crudHelp"> </span>
-  	</div>
-</div>
+<div class="objectForm">
+	#{form action:@save(object._key()), enctype:'multipart/form-data',
+	class: "formulario"} #{formulario} #{crud.custom 'foto'}
 
-	    #{/crud.custom}
-        
-        #{/ formulario}
-        <a class="btn-cafe pull-left"  style="margin-top:10px; margin-left:10px;" href="/socios/list"><i class="fa fa-mail-reply"> </i> Volver</a>
-        <p class="crudButtons">
-            <button type="submit" name="_save"  class="btn btn-primary"><i class="fa fa-save"> </i> &{'crud.save', type.modelName}</button>
-            <button type="submit" name="_saveAndContinue"  class="btn btn-warning"><i class="fa fa-clipboard"> </i> &{'crud.saveAndContinue', type.modelName}</button>
-        </p>
-    #{/form}
-    </div>
+	<div class="row">
+		<div class="col-lg-2">
+			<label for="object_foto"> &{'foto'} (opcional) </label>
+		</div>
+		<div class="col-lg-10">
+
+			<img id="img_destino" height="100px"
+				src="@{Socios.verFoto(object.id)}" width="100px"> <input
+				id="object_foto" type="file" name="object.foto"
+				style="margin-top: 10px;">
+		</div>
+		<div class="col-lg-4">
+			<span class="crudHelp"> </span>
+		</div>
+	</div>
+
+	#{/crud.custom} #{/ formulario} <a class="btn-cafe pull-left"
+		style="margin-top: 10px; margin-left: 10px;" href="/socios/list"><i
+		class="fa fa-mail-reply"> </i> Volver</a>
+	<p class="crudButtons">
+		<button type="submit" name="_save" class="btn btn-primary">
+			<i class="fa fa-save"> </i> &{'crud.save', type.modelName}
+		</button>
+		<button type="submit" name="_saveAndContinue" class="btn btn-warning">
+			<i class="fa fa-clipboard"> </i> &{'crud.saveAndContinue',
+			type.modelName}
+		</button>
+	</p>
+	#{/form}
+</div>

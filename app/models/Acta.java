@@ -10,12 +10,12 @@ import play.db.jpa.Model;
 @Entity
 public class Acta extends Model {
 	
-	@Required
+	@Required(message="Ingrese una descripción")
 	public String descripcion;
 
 
     @Lob
-    @Required
+    @Required(message="El acta debe tener un Contenido")
     @MaxSize(10000)
 	public String contenido; 
 	

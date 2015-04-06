@@ -1,17 +1,15 @@
-#{field 'object.' +     _name}
+#{field 'object.' + _name}
 <div class="row">
 	<div class="col-lg-2">
-    <label for="${field.id}">
-        &{_name}
-    </label>
-    </div>
-    <div class="col-lg-6">
-    <textarea id="${field.id}" cols="48" rows="5" class="${field.errorClass}" name="${field.name}">${params[field.name]?.escape()?.raw() ?: field.error?.message == 'validation.required' ? '' : _value?.escape()?.raw()}</textarea>
-    </div>
-    <div class="col-lg-4">
-    #{ifError field.name}
-        <span class="error">${field.error.raw()}</span>
-    #{/ifError}
-    </div>
+		<label for="${field.id}"> &{_name} </label>
+	</div>
+	<div class="col-lg-6">
+		<textarea id="${field.id}" cols="48" rows="5"
+			class="${field.errorClass}" name="${field.name}">${params[field.name]?.escape()?.raw() ?: field.error?.message == 'validation.required' ? '' : _value?.escape()?.raw()}</textarea>
+	</div>
+	<div class="col-lg-4">
+		#{ifError field.name} <span class="error">${field.error.raw()}</span>
+		#{/ifError}
+	</div>
 </div>
 #{/field}

@@ -1,29 +1,33 @@
-#{extends 'layout.html' /}
-#{set title:messages.get('crud.blank.title', type.modelName) /}
+#{extends 'layout.html' /} #{set title:messages.get('crud.blank.title',
+type.modelName) /}
 
 
 <div id="crudBlank" class="${type.name}">
 
-    <h2 id="crudBlankTitle">&{'crud.blank.title', type.modelName}</h2>
+	<h2 id="crudBlankTitle">&{'crud.blank.title', type.modelName}</h2>
 	<br>
-    <div class="objectForm">
-    #{form action:@create(), enctype:'multipart/form-data',class:'formulario'}
-        #{formulario}
-        
-         #{crud.custom 'foto'}
-         
-         	#{ foto /}
-        	
-	    #{/crud.custom}
-        
-        #{/ formulario}
-        <p class="crudButtons">
-        	  <a class="btn-cafe pull-left"  style="margin-left:10px;" href="/socios/list"><i class="fa fa-mail-reply"> </i> Volver</a>
-            <button type="submit" name="_save" class="btn btn-primary"><i class="fa fa-save"> </i> &{'crud.save', type.modelName}</button>
-            <button type="submit" name="_saveAndContinue"  class="btn btn-warning"> <i class="fa fa-clipboard"> </i> &{'crud.saveAndContinue', type.modelName}</button>
-            <button type="submit" name="_saveAndAddAnother"  class="btn btn-success"> <i class="fa fa-file"> </i> &{'crud.saveAndAddAnother', type.modelName}</button>
-        </p>
-    #{/form}
-    </div>
+	<div class="objectForm">
+		#{form action:@create(),
+		enctype:'multipart/form-data',class:'formulario'} #{formulario}
+
+		#{crud.custom 'foto'} #{ foto /} #{/crud.custom} #{/ formulario}
+		<p class="crudButtons">
+			<a class="btn-cafe pull-left" style="margin-left: 10px;"
+				href="/socios/list"><i class="fa fa-mail-reply"> </i> Volver</a>
+			<button type="submit" name="_save" class="btn btn-primary">
+				<i class="fa fa-save"> </i> &{'crud.save', type.modelName}
+			</button>
+			<button type="submit" name="_saveAndContinue" class="btn btn-warning">
+				<i class="fa fa-clipboard"> </i> &{'crud.saveAndContinue',
+				type.modelName}
+			</button>
+			<button type="submit" name="_saveAndAddAnother"
+				class="btn btn-success">
+				<i class="fa fa-file"> </i> &{'crud.saveAndAddAnother',
+				type.modelName}
+			</button>
+		</p>
+		#{/form}
+	</div>
 
 </div>

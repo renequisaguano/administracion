@@ -1,34 +1,29 @@
-#{extends 'layout.html' /}
-#{set title:messages.get('crud.list.title', type.name) /}
+#{extends 'layout.html' /} #{set title:messages.get('crud.list.title',
+type.name) /}
 
 
-<div class="row"> 
+<div class="row">
 	<div class="col-lg-7">
-    	<h2 id="crudListTitle">Listado de &{'crud.list.title', type.name}</h2>
+		<h2 id="crudListTitle">Listado de &{'crud.list.title', type.name}</h2>
 	</div>
 	<div class="col-lg-5">
-        <a href="@{blank()}" class="btn btn-success" style="color:white; font-weight: bold; margin-top: 10px;"><i class="fa fa-plus"> </i> &{'crud.add', type.modelName}</a>	
+		<a href="@{blank()}" class="btn btn-success"
+			style="color: white; font-weight: bold; margin-top: 10px;"><i
+			class="fa fa-plus"> </i> &{'crud.add', type.modelName}</a>
 	</div>
 </div>
 <br>
 
-		#{search /}
-		
-		
-        #{table fields:['cedula','apellido','nombre','foto','id']}
-		   	 
-		  
-		   #{crud.custom 'id'}
-		       <a href="/socios/show?id=${object.id}" class="btn btn-warning"><li class="fa fa-edit"> </li> Editar</a>
-		   #{/crud.custom}
+#{search /} #{table fields:['cedula','apellido','nombre','foto','id']}
 
-		   #{crud.custom 'foto'}
-		   	<img height="50px" width="50px" src="@{Socios.verFoto(object.id)}">
-		   #{/ crud.custom}
-  		#{/table}
 
-<div id="crudListPagination">
-        #{pagination /}
-</div>
+#{crud.custom 'id'}
+<a href="/socios/show?id=${object.id}" class="btn btn-warning"><li
+	class="fa fa-edit"></li> Editar</a>
+#{/crud.custom} #{crud.custom 'foto'}
+<img height="50px" width="50px" src="@{Socios.verFoto(object.id)}">
+#{/ crud.custom} #{/table}
 
-   
+<div id="crudListPagination">#{pagination /}</div>
+
+
